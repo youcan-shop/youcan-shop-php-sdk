@@ -16,7 +16,7 @@ class FakeAPIService implements ApiServiceInterface
     {
         $this->response = $response;
 
-        $this->httpAdapter = new FakeApiAdapter();
+        $this->httpAdapter = new FakeAPIAdapter();
         $this->httpAdapter->setFakeResponse($response);
     }
 

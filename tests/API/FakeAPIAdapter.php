@@ -5,7 +5,7 @@ namespace Tests\API;
 use YouCan\Shop\Sdk\Client\HTTPAdapter\HTTPAdapter;
 use YouCan\Shop\Sdk\Client\Response;
 
-class FakeApiAdapter extends HTTPAdapter
+class FakeAPIAdapter extends HTTPAdapter
 {
     private Response $fakeResponse;
 
