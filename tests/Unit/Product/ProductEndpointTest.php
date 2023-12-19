@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\Account;
+namespace Tests\Unit\Product;
 
 use Tests\API\FakeAPIService;
 use Tests\BaseTestCase;

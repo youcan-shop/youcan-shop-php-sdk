@@ -2,7 +2,7 @@
 
 namespace YouCan\Shop\Sdk\Endpoints\Exceptions\Client;
 
-use YouCan\Shop\Sdk\Endpoints\Exceptions\BaseException;
+use YouCan\Shop\Sdk\Exceptions\BaseException;
 
 class ClientException extends BaseException
 {

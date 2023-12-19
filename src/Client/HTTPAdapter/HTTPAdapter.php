@@ -39,7 +39,7 @@ abstract class HTTPAdapter
         $this->token = $token;
     }
 
-    private function addTokenToHeader(array &$headers): void
+    protected function addTokenToHeader(array &$headers): void
     {
         if ($this->token) {
             $headers['Authorization'] = 'Bearer ' . $this->token;

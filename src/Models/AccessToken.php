@@ -42,4 +42,9 @@ class AccessToken
     {
         return $this->expiresIn < time();
     }
+
+    public function __toString(): string
+    {
+        return $this->token;
+    }
 }

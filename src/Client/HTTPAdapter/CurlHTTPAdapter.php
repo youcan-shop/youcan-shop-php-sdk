@@ -17,9 +17,9 @@ class CurlHTTPAdapter extends HTTPAdapter
      */
     private const DEFAULT_CONNECT_TIMEOUT = 2;
 
-    public function __construct(bool $isSandboxMode)
+    public function __construct()
     {
-        parent::__construct($isSandboxMode);
+        parent::__construct();
     }
 
     protected function parseHeaders(array $headers): array
@@ -35,9 +35,11 @@ class CurlHTTPAdapter extends HTTPAdapter
 
     public function request(string $method, string $endpoint, array $params = [], array $headers = []): Response
     {
+        $method = strtolower($method);
+
         $headers["content-type"] = "application/json";
         $headers["Accept"] = "application/json";
-        $method = strtolower($method);
+        $this->addTokenToHeader($headers);
 
         if ($method === 'post') {
             $curl = curl_init(sprintf('%s%s', $this->getBaseUrl(), $endpoint));

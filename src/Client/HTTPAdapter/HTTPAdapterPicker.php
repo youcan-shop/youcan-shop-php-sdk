@@ -4,19 +4,19 @@ namespace YouCan\Shop\Sdk\Client\HTTPAdapter;
 
 class HTTPAdapterPicker
 {
-    public function pickAdapter(bool $isSandboxMode)
+    public function pickAdapter()
     {
         if ($this->guzzleIsDetected()) {
             $guzzleVersion = $this->guzzleMajorVersionNumber();
 
             if ($guzzleVersion && in_array($guzzleVersion, [6, 7])) {
-                return new Guzzle67HTTPAdapter($isSandboxMode);
+                return new Guzzle67HTTPAdapter();
             }
 
             throw new \Exception('unsupported guzzle version, we support 6 or 7');
         }
 
-        return new CurlHTTPAdapter($isSandboxMode);
+        return new CurlHTTPAdapter();
     }
 
     /**

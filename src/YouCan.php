@@ -2,7 +2,9 @@
 
 namespace YouCan\Shop\Sdk;
 
+use YouCan\Shop\Sdk\Client\ApiService;
 use YouCan\Shop\Sdk\Client\ApiServiceInterface;
+use YouCan\Shop\Sdk\Client\HTTPAdapter\HTTPAdapterPicker;
 use YouCan\Shop\Sdk\Endpoints\Endpoint;
 use YouCan\Shop\Sdk\Models\AccessToken;
 
@@ -33,5 +35,10 @@ class YouCan
             $endpoint->getMethod(),
             $endpoint->getParams()
         )->getResponse();
+    }
+
+    public static function instance(): self
+    {
+        return new self(new ApiService(new HTTPAdapterPicker()));
     }
 }

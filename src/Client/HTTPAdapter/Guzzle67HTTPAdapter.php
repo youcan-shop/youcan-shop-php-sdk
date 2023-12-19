@@ -12,9 +12,9 @@ class Guzzle67HTTPAdapter extends HTTPAdapter
 {
     private GuzzleClient $httpClient;
 
-    public function __construct(bool $isSandboxMode, array $clientConfig = [])
+    public function __construct(array $clientConfig = [])
     {
-        parent::__construct($isSandboxMode);
+        parent::__construct();
 
         $this->httpClient = new GuzzleClient(
             array_merge($clientConfig, [
@@ -30,6 +30,8 @@ class Guzzle67HTTPAdapter extends HTTPAdapter
 
     public function request(string $method, string $endpoint, array $params = [], array $headers = []): Response
     {
+        $this->addTokenToHeader($headers);
+
         $response = $this->httpClient->request($method, $endpoint, [
             RequestOptions::FORM_PARAMS => $params,
             RequestOptions::QUERY       => $params,
