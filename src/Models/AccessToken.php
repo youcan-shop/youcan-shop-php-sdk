@@ -10,7 +10,7 @@ class AccessToken
 
     public function __construct(
         string $token,
-        int $expiresIn,
+        int $expiresIn = 0,
         ?string $refreshToken = null
     ) {
         $this->token = $token;

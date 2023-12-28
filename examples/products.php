@@ -9,7 +9,7 @@ use YouCan\Shop\Sdk\YouCan;
 $accessToken = '';
 
 // Creating an Instance
-$youCan = YouCan::instance()->setAccessToken(new AccessToken($accessToken, 1));
+$youCan = YouCan::instance()->setAccessToken(new AccessToken($accessToken));
 
 
 try {
