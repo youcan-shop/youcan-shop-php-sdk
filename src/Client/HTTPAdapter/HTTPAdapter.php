@@ -3,11 +3,11 @@
 namespace YouCan\Shop\Sdk\Client\HTTPAdapter;
 
 use YouCan\Shop\Sdk\Client\Response;
+use YouCan\Shop\Sdk\Constants;
 use YouCan\Shop\Sdk\Models\AccessToken;
 
 abstract class HTTPAdapter
 {
-    public const BASE_APP_URL = 'https://api.youcan.shop/';
     private ?AccessToken $token = null;
 
     public function __construct(?string $token = null)
@@ -17,7 +17,7 @@ abstract class HTTPAdapter
 
     protected function getBaseUrl(): string
     {
-        return getenv('YOUCAN_SHOP_URL') ?: self::BASE_APP_URL;
+        return getenv('YOUCAN_SHOP_URL') ?: Constants::LIVE_API_URL;
     }
 
     public function get(string $endpoint, array $params = [], array $headers = []): Response
